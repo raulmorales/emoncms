@@ -54,8 +54,9 @@
     if (!extension_loaded('gettext')){
        echo "Your PHP installation appears to be missing the gettext extension which is required by Emoncms. <br> See /php-info.php (restricted to local access)"; die;
     }
-
-    $mysqli = @new mysqli($server,$username,$password,$database,$port);
+  
+    $mysqli = @new mysqli($server,$username,$password,$database,$port,$socket);
+    
     if ( $mysqli->connect_error ) {
         echo "Can't connect to database, please verify credentials/configuration in settings.php<br />";
         if ( $display_errors ) {
